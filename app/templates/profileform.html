@@ -28,6 +28,31 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+
+        <p>
+            {{ form.role.label }} <br>
+            {{ form.role() }} <br>
+            {% for error in form.role.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.favColor.label }} <br>
+            {{ form.favColor(size=64) }}
+            {% for error in form.favColor.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.mascot.label }} <br>
+            {{ form.mascot() }}
+            {% for error in errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
         <p>
             {{ form.image.label }}<br>
             {% if current_user.image %}
@@ -42,5 +67,7 @@
         </p>
         <p>{{ form.submit() }}</p>
     </form>
+
+    
 
 {% endblock %}

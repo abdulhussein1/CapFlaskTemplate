@@ -9,6 +9,9 @@
 </h1>
 
 
+
+
+
 <div class="row">
     <div class="col-2">
         {% if current_user.image %}
@@ -23,7 +26,10 @@
         {% endif %}
         
         Username: {{current_user.username}} <br>
-        Email: {{current_user.email}}
+        Email: {{current_user.email}} <br>
+        Role: {{ current_user.role }} <br>
+        Favorite Color: {{ current_user.favColor }} <br>
+        Mascot: {{ current_user.mascot }}
     </div>
 </div>
 <br>

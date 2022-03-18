@@ -3,6 +3,7 @@
 # like IntField, StringField etc.  This uses the Mongoengine Python Library. When you interact with the 
 # data you are creating an onject that is an instance of the class.
 
+from tkinter import Button
 from app import app
 from flask import flash
 from flask_login import UserMixin
@@ -14,6 +15,8 @@ import jwt
 from time import time
 from bson.objectid import ObjectId
 
+
+
 class User(UserMixin, Document):
     username = StringField()
     password_hash = StringField()
@@ -21,6 +24,9 @@ class User(UserMixin, Document):
     lname = StringField()
     email = EmailField()
     image = FileField()
+    role = StringField()
+    favColor = StringField()
+    mascot = StringField()
     
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -41,6 +47,8 @@ class User(UserMixin, Document):
             flash("Could not verify reset password token.")
             return
         return User.objects.get(pk=id)
+    
+    
 
 class Post(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
@@ -48,6 +56,7 @@ class Post(Document):
     content = StringField()
     createdate = DateTimeField(default=dt.datetime.utcnow)
     modifydate = DateTimeField()
+    rating = StringField()
 
     meta = {
         'ordering': ['-createdate']

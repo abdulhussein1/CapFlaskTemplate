@@ -35,6 +35,20 @@
                 {% endif %}
                 {{post.subject}}
             </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5">Rating</h3>
+                {% endif %}
+                {{ post.rating }}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5">Edit</h3>
+                {% endif %}
+                <form action="{{ url_for('post', postID = post.id) }}">
+                    <input type="submit" value="Edit">
+                </form>
+            </div>
         </div>
     {% endfor %}
 {% else %}

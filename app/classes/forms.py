@@ -2,6 +2,7 @@
 # and users fill them out.  Each form is an instance of of a class. Forms are managed by the 
 # Flask-WTForms library.
 
+from random import choices
 from flask.app import Flask
 from flask import flash
 from flask_wtf import FlaskForm
@@ -59,12 +60,17 @@ class ProfileForm(FlaskForm):
     lname = StringField('Last Name', validators=[DataRequired()]) 
     image = FileField("Image") 
     submit = SubmitField('Post')
+    role = SelectField('Role', choices = [("admin", "admin"), ("randUser", "randUser")])
+    favColor = StringField('Favorite Color', validators=[DataRequired()])
+    mascot = SelectField('Mascot', choices=[('bulldog', 'bulldog'), ('lion', 'lion')])
 
 class PostForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])
     content = TextAreaField('Post', validators=[DataRequired()])
     submit = SubmitField('Post')
+    rating = SelectField('Rating', choices=[('5', '5'), ('4', '4'), ('3', '3'), ('2', '2'), ('1', '1')])
 
 class CommentForm(FlaskForm):
     content = TextAreaField('Comment', validators=[DataRequired()])
     submit = SubmitField('Comment')
+
