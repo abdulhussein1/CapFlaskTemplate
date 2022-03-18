@@ -50,6 +50,11 @@
                 </form>
             </div>
         </div>
+        <div class="row border-bottom">
+            <p>{{post.author.username}}</p>                                    {{moment(post.createdate).calendar()}}<br><br>
+            <h4>{{post.subject}}</h4>
+            <p>{{post.content}}</p>
+        </div>
     {% endfor %}
 {% else %}
     <h1>No Posts</h1>
