@@ -2,6 +2,7 @@
 # a forum where a posts and comments on those posts can be
 # Created, Read, Updated or Deleted (CRUD)
 
+from sympy import content
 from app import app, login
 import mongoengine.errors
 from flask import render_template, flash, redirect, url_for
@@ -43,6 +44,7 @@ def post(postID):
     theseComments = Comment.objects(post=thisPost)
     # Send the post object and the comments object to the 'post.html' template.
     return render_template('post.html',post=thisPost,comments=theseComments)
+
 
 # This route will delete a specific post.  You can only delete the post if you are the author.
 # <postID> is a variable sent to this route by the user who clicked on the trash can in the 

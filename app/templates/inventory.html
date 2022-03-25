@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<p>
+    <div class="col">
+        <a href="{{ url_for('itemNew') }}" class="btn btn-primary btn-sm mt-5" role="button">New item</a>
+    </div>
+</p>
+
+<form method="get">
+    {% for item in items %}
+        {{ item.item }} <br>
+        <p>
+            <form action="{{ url_for('edit', postID = post.id) }}">
+                <button>More</button>
+            </form>
+        </p>
+    {% endfor %}
+</form>
+
+{% endblock %}
