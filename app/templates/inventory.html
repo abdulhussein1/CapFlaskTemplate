@@ -12,9 +12,7 @@
     {% for item in items %}
         {{ item.item }} <br>
         <p>
-            <form action="{{ url_for('edit', postID = post.id) }}">
-                <button>More</button>
-            </form>
+            <a href="{{ url_for('itemView', itemID = item.id) }}" class="btn btn-dark" role="button">View item</a>
         </p>
     {% endfor %}
 </form>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>Item: {{ item.item }}</h1>
+<form action="{{ url_for('itemDelete', itemID = item.id) }}">
+    <button>Delete</button>
+</form>
+<form action="{{ url_for('itemEdit', itemID = item.id) }}">
+    <button>Edit</button>
+</form>
+
+
+{% endblock %}
