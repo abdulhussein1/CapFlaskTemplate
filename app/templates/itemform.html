@@ -12,6 +12,20 @@
         {% endfor %}
     </p>
     <p>
+        {{ form.price.label }}
+        {{ form.price(size=32) }}
+        {% for error in form.price.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.stock.label }}
+        {{ form.stock(size=32) }}
+        {% for error in form.stock.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
         {{form.submit()}}
     </p>
 </form>

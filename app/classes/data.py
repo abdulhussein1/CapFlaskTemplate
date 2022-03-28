@@ -79,3 +79,8 @@ class Comment(Document):
 
 class Item(Document):
     item = StringField()
+    price = StringField()
+    stock = StringField()
+
+class Order(Document):
+    name = StringField()

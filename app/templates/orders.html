@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<p>
+    <div class="col">
+        <a href="{{ url_for('orderNew') }}" class="btn btn-dark" role="button">New Order</a>
+    </div>
+</p>
+
+<p>
+    {% for order in orders %}
+        Name: {{ order.name }}
+    {% endfor %}
+</p>
+
+{% endblock %}

@@ -18,7 +18,9 @@ def itemNew():
 
     if form.validate_on_submit():
         newItem = Item(
-            item = form.item.data
+            item = form.item.data,
+            price = form.price.data,
+            stock = form.stock.data
         )
 
         newItem.save()
@@ -50,10 +52,14 @@ def itemEdit(itemID):
         # update() is mongoengine method for updating an existing document with new data.
         editItem.update(
             item = form.item.data,
+            price = form.price.data,
+            stock = form.stock.data
         )
 
         return redirect(url_for('itemView',itemID=itemID))
 
     form.item.data = editItem.item
+    form.price.data = editItem.price
+    form.stock.data = editItem.stock
 
     return render_template('itemform.html',form=form)

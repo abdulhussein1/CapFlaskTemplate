@@ -4,6 +4,7 @@
 
 from msilib.schema import _Validation_records
 from random import choices
+from unicodedata import name
 from flask.app import Flask
 from flask import flash
 from flask_wtf import FlaskForm
@@ -77,3 +78,9 @@ class CommentForm(FlaskForm):
 class ItemForm(FlaskForm):
     item = StringField('Item', validators=[DataRequired()])
     submit = SubmitField('Submit')
+    price = StringField('Price', validators=[DataRequired()])
+    stock = StringField('Stock', validators=[DataRequired()])
+
+class OrderForm(FlaskForm):
+    submit = SubmitField('Order')
+    name = StringField('Name', validators=[DataRequired()])
