@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% for item in items %}
+    {{ item.item }} - ${{ item.price }}
+    <form action="{{ url_for('addToCart', itemID = item.id ) }}" method=get>
+        {{ form.hidden_tag() }}
+        <p>
+            {{form.add()}}
+        </p>
+    </form>
+{% endfor %}
+
+{% endblock %}

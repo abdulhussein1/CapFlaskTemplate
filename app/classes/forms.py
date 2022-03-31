@@ -81,6 +81,5 @@ class ItemForm(FlaskForm):
     price = StringField('Price', validators=[DataRequired()])
     stock = StringField('Stock', validators=[DataRequired()])
 
-class OrderForm(FlaskForm):
-    submit = SubmitField('Order')
-    name = StringField('Name', validators=[DataRequired()])
+class ShopForm(FlaskForm):
+    add = SubmitField('Add to cart')

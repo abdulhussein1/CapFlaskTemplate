@@ -82,5 +82,5 @@ class Item(Document):
     price = StringField()
     stock = StringField()
 
-class Order(Document):
-    name = StringField()
+class Cart(Document):
+    id = StringField()

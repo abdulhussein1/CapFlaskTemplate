@@ -4,4 +4,4 @@ from .forum import *
 from .mail import *
 from .user import *
 from .inventory import *
-from .orders import *
+from .shop import *
