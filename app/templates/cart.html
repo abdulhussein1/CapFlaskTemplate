@@ -2,7 +2,20 @@
 
 {% block body %}
 
-{{ label }} - ${{ price }} <br>
+{% for item in cart %}
+    {{ item.label }} - ${{ item.price }} <a href="{{ url_for('cartItemDelete', itemID = item.id) }}" class="btn btn-dark" role="button">Delete</a>  <br>
+{% endfor %}
 
+<p>
+    <a href="{{ url_for('clearCart') }}" class="btn btn-dark" role="button">Clear Cart</a>
+</p>
+
+<p></p><p></p>
+<a href="{{ url_for('shop') }}" class="btn btn-dark" role="button">Back to Shop</a>
+
+<p>
+    Total Price: ${{ total }} <a href="{{ url_for('checkout') }}" class="btn btn-dark" role="button">Checkout</a>
+ 
+</p>
 
 {% endblock %}

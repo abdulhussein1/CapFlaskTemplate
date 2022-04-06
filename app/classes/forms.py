@@ -14,6 +14,7 @@ from wtforms.validators import URL, NumberRange, Email, Optional, InputRequired,
 from wtforms import PasswordField, StringField, SubmitField, TextAreaField, HiddenField, IntegerField, SelectField, FileField, BooleanField
 from app.classes.data import User
 
+
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -78,8 +79,6 @@ class CommentForm(FlaskForm):
 class ItemForm(FlaskForm):
     item = StringField('Item', validators=[DataRequired()])
     submit = SubmitField('Submit')
-    price = StringField('Price', validators=[DataRequired()])
-    stock = StringField('Stock', validators=[DataRequired()])
+    price = IntegerField('Price', validators=[DataRequired()])
+    stock = IntegerField('Stock', validators=[DataRequired()])
 
-class ShopForm(FlaskForm):
-    add = SubmitField('Add to cart')

@@ -2,14 +2,13 @@
 
 {% block body %}
 
+
 {% for item in items %}
-    {{ item.item }} - ${{ item.price }}
-    <form action="{{ url_for('addToCart', itemID = item.id ) }}" method=get>
-        {{ form.hidden_tag() }}
-        <p>
-            {{form.add()}}
-        </p>
-    </form>
+    {{ item.item }} - ${{ item.price }} <br>
+    <a href="{{ url_for('addToCart', itemID = item.id) }}" class="btn btn-dark" role="button">Add To Cart</a> <br>
 {% endfor %}
+<p></p>
+
+<a href="{{ url_for('viewCart') }}" class="btn btn-dark" role="button">View Cart</a> <br>
 
 {% endblock %}

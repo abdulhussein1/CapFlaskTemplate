@@ -8,15 +8,12 @@ from tkinter import Button
 from app import app
 from flask import flash
 from flask_login import UserMixin
-from mongoengine import FileField, EmailField, StringField, ReferenceField, DateTimeField, CASCADE
+from mongoengine import ListField, IntField, FileField, EmailField, StringField, ReferenceField, DateTimeField, CASCADE
 from flask_mongoengine import Document
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime as dt
 import jwt
 from time import time
-#from bson.objectid import ObjectId
-
-
 
 class User(UserMixin, Document):
     username = StringField()
@@ -79,8 +76,18 @@ class Comment(Document):
 
 class Item(Document):
     item = StringField()
-    price = StringField()
-    stock = StringField()
+    price = IntField()
+    stock = IntField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }
 
 class Cart(Document):
-    id = StringField()
+    username = StringField()
+    label = StringField()
+    price = IntField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }
