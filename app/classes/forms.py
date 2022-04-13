@@ -2,7 +2,6 @@
 # and users fill them out.  Each form is an instance of a class. Forms are managed by the 
 # Flask-WTForms library.
 
-from msilib.schema import _Validation_records
 from random import choices
 from unicodedata import name
 from flask.app import Flask

@@ -1,4 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav 
+   class="navbar navbar-dark bg-primary">
+  <!-- Navbar content -->
+<class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +23,7 @@
             <li><a class="dropdown-item" href="/inventory">Inventory</a></li>
           </ul>
         </li>
+        
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         {% if current_user.is_anonymous %}
