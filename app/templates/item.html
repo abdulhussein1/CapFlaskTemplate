@@ -3,6 +3,12 @@
 {% block body %}
 
 <h1>Item: {{ item.item }}</h1> <br>
+<h2>Ingredients:</h2>
+{% for ing in ings %}
+    <h4>    - {{ ing.label }}</h4>
+{% endfor %}
+
+
 <h3>Price: ${{ item.price }}</h3> 
 <h3>Stock: {{ item.stock }}</h3> <br>
 <form action="{{ url_for('itemDelete', itemID = item.id) }}">
@@ -10,6 +16,9 @@
 </form>
 <form action="{{ url_for('itemEdit', itemID = item.id) }}">
     <button>Edit</button>
+</form>
+<form action="{{ url_for('addIng', name = item.item, itemID = item.id) }}">
+    <button>Add Ingredient</button>
 </form>
 
 

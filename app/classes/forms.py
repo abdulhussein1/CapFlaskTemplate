@@ -81,3 +81,7 @@ class ItemForm(FlaskForm):
     price = IntegerField('Price', validators=[DataRequired()])
     stock = IntegerField('Stock', validators=[DataRequired()])
 
+class IngredientForm(FlaskForm):
+    label = StringField('Ingredient', validators=[DataRequired()])
+    submit = SubmitField('Add Ingredient')
+

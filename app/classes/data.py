@@ -5,6 +5,7 @@
 # you interact with the data you are creating an onject that is an instance of the class.
 
 from tkinter import Button
+from unicodedata import name
 from app import app
 from flask import flash
 from flask_login import UserMixin
@@ -91,3 +92,7 @@ class Cart(Document):
     meta = {
         'ordering': ['-createdate']
     }
+
+class Ingredient(Document):
+    label = StringField()
+    name = StringField()
