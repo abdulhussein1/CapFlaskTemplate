@@ -5,3 +5,4 @@ from .mail import *
 from .user import *
 from .inventory import *
 from .shop import *
+from .donate import *

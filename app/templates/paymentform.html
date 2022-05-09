@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<form method="get">
+    {{ form.hidden_tag() }}
+    
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+
+
+{% endblock %}

@@ -2,14 +2,12 @@
 # and users fill them out.  Each form is an instance of a class. Forms are managed by the 
 # Flask-WTForms library.
 
-from random import choices
-from unicodedata import name
 from flask.app import Flask
 from flask import flash
 from flask_wtf import FlaskForm
 from mongoengine.fields import EmailField
 import mongoengine.errors
-from wtforms.validators import URL, NumberRange, Email, Optional, InputRequired, ValidationError, DataRequired, EqualTo
+from wtforms.validators import URL, NumberRange, Email, Optional, InputRequired, ValidationError, DataRequired, EqualTo, Length
 from wtforms import PasswordField, StringField, SubmitField, TextAreaField, HiddenField, IntegerField, SelectField, FileField, BooleanField
 from app.classes.data import User
 
@@ -84,4 +82,24 @@ class ItemForm(FlaskForm):
 class IngredientForm(FlaskForm):
     label = StringField('Ingredient', validators=[DataRequired()])
     submit = SubmitField('Add Ingredient')
+
+class DonationsForm(FlaskForm):
+    amount = IntegerField("Donation Amount", validators=[DataRequired()])
+    fname = StringField('First Name', validators=[DataRequired()])
+    lname = StringField('Last Name', validators=[DataRequired()])
+    country = SelectField('Country', choices=[('United States', 'United States')])
+    address = StringField('Address', validators=[DataRequired()])
+    city = StringField('City', validators=[DataRequired()])
+    state = SelectField('State', choices=[('California', 'California'), ('Kentucky', 'Kentucky')])
+    zip = IntegerField('Zip Code', validators=[DataRequired()])
+    phone_number = IntegerField('Phone Number', validators=[DataRequired()])
+    currency = SelectField('Currency', choices=[('USD', 'USD')])
+    card_number = IntegerField('Credit Card Number', validators=[DataRequired()])
+    cvv = StringField('CVV', validators=[DataRequired(), Length(min=3, max=3)])
+    month =  SelectField('Expiration Date', choices=[('January','January'), ('February', 'February'), ('March', 'March'), ('April', 'April'), ('May', 'May'), ('June', 'June'), ('July', 'July'), ('August', 'August'), ('September', 'September'), ('October', 'October'), ('November', 'November'), ('December', 'December')])
+    year = StringField('Year', validators=[DataRequired(), Length(min=4, max=4)])
+    submit = SubmitField('Donate')
+
+
+
 

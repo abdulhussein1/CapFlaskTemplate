@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<h1>How much would you like to donate?</h1>
+
+
+{% for i in range(4) %}
+<form action="{{ url_for('info', amount = 25*(i+1)) }}">
+    <input type="submit" value="${{ (i+1)*25 }}">
+</form>
+{% endfor %}
+
+<form action="{{ url_for('info', amount = 0) }}">
+    <input type="submit" value="Other">
+</form>
+
+
+{% endblock %}

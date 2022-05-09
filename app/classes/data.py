@@ -4,6 +4,7 @@
 # fields have types like IntField, StringField etc.  This uses the Mongoengine Python Library. When 
 # you interact with the data you are creating an onject that is an instance of the class.
 
+from locale import currency
 from tkinter import Button
 from unicodedata import name
 from app import app
@@ -96,3 +97,19 @@ class Cart(Document):
 class Ingredient(Document):
     label = StringField()
     name = StringField()
+
+class Donations(Document):
+    amount = IntField()
+    fname = StringField()
+    lname = StringField()
+    country = StringField()
+    address = StringField()
+    city = StringField()
+    state = StringField()
+    zip = IntField()
+    phone_number = IntField()
+    currency = StringField()
+    card_number = IntField()
+    cvv = StringField()
+    month = StringField()
+    year = StringField()

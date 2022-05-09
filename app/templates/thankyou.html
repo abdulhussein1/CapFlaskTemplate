@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<h1>Thank you for your donation {{ fname }}</h1> <br>
+
+<form action="{{ url_for('index') }}">
+    <input type="submit" value="Home">
+</form>
+
+{% endblock %}
